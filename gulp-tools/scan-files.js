@@ -10,51 +10,37 @@ var fs = require('fs');
 var files = [];
 var readDir = (dir, filter, done) => {
     var readFiles = [];
-    fs.readdir(dir, function(err, list) {
-        if (err) {
-            return done(null, readFiles);
+    var list = fs.readdirSync(dir);
+    var index = 0;
+
+    list = list.map(function(val) {
+        return path.join(dir, val);
+    });
+
+    (function next() {
+        var fullPath = list[index++];
+        if (!fullPath) {
+            return readFiles;
         }
-        var index = 0;
 
-        list = list.map(function(val) {
-            return path.join(dir, val);
-        });
-
-        (function next() {
-            var fullPath = list[index++];
-            if (!fullPath) {
-                return done(null, readFiles);
-            }
-
-            fs.stat(fullPath, function(err, stat) {
-                if (stat && stat.isDirectory()) {
-                    readDir(fullPath, filter, function(err, res) {
-                        readFiles = readFiles.concat(res);
-                        next();
-                    });
-                    return;
-                }
-                var fileInfo = {
-                    fullPath: fullPath,
-                    fileName: path.basename(fullPath),
-                    size: stat.size
-                };
-                if (typeof filter === 'function' && filter(fullPath) === true) {
-                    readFiles.push(fileInfo);
-                } else {
-                    path.extname(fullPath) === '.js' && readFiles.push(fileInfo);
-                }
-                next();
-            });
-        }());
-    });
+        var stat = fs.statSync(fullPath);
+        if (stat && stat.isDirectory()) {
+            readFiles = readFiles.concat(readDir(fullPath, filter));
+            next();
+            return;
+        }
+        var fileInfo = {
+            fullPath: fullPath,
+            fileName: path.basename(fullPath),
+            size: stat.size
+        };
+        if (typeof filter === 'function' && filter(fullPath) === true) {
+            readFiles.push(fileInfo);
+        } else {
+            path.extname(fullPath) === '.js' && readFiles.push(fileInfo);
+        }
+        next();
+    }());
+    return readFiles;
 }
-
-
-module.exports = function(dir, filter) {
-    return new Promise(function(resolve, reject) {
-        readDir(dir, filter, function(err, result) {
-            err ? reject(err) : resolve(result);
-        });
-    });
-};
+module.exports = readDir;
