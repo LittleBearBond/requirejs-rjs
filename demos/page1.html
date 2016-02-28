@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>page1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="telephone=no" name="format-detection">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="full-screen" content="true">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="360-fullscreen" content="true">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<script type="text/javascript" data-main="/require-demo/dist/js/page1/page.js" src="../lib/require.js"></script>
+<!-- <script type="text/javascript" src="/require-demo/lib/jquery-2.1.4.js"></script> -->
+<script type="text/javascript">
+    requirejs.config({
+        //所有模块的查找根路径
+        // baseUrl: '/require-demo/js/',
+        paths: {
+            'jquery': '../lib/jquery-2.1.4',
+            'page1/page': 'page',
+            'a': 'a',
+            'b': 'b',
+            'c': 'c',
+        }
+    });
+
+    /*require(['/require-demo/js/dir.js'], function(a) {
+        console.log(a)
+    });*/
+
+    /*require(['/require-demo/js/b.js'], function(a) {
+        console.log(a)
+    });*/
+
+    /*require(['jquery'], function(a) {
+        console.log(a)
+    });*/
+
+    /*require(['/require-demo/dist/page1/page.js'], function(a) {
+        console.log(a)
+    });*/
+
+    /*requirejs.config({
+        paths: {
+            'require-demo/dist/js/page1/page': '/require-demo/dist/js/page1/page',
+        }
+    });*/
+    // require(['/require-demo/dist/js/page1/page.js']);
+    require(['page1/page'],function (a) {
+        a({name:'name'});
+    });
+</script>
+</head>
+<body>
+<h1>test</h1>
+</body>
+</html>

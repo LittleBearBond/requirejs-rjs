@@ -1,0 +1,12 @@
+<script type="text/javascript" src="../lib/require.js"></script>
+<!-- <script type="text/javascript" src="/require-demo/lib/jquery-2.1.4.js"></script> -->
+<script type="text/javascript">
+    requirejs.config({
+        //所有模块的查找根路径
+        baseUrl: '/require-demo/js/',
+        paths: {
+            'jquery': '../lib/jquery-2.1.4',
+            'page1/page': 'page1/page'
+        }
+    });
+</script>

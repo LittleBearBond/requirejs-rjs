@@ -1,0 +1,1 @@
+define(["require","a","c"],function(e,t,n){return{name:"b",log:function(){console.log.apply(console,Array.prototype.slice.call(arguments))}}});

@@ -1,0 +1,1 @@
+define(["require","exports","module"],function(e,t,n){return console.log("require","exports","module"),console.dir(e),console.dir(t),console.dir(n),t.name=123,console.log(n.exports===t),n.exports={name:"export"},console.log(n.exports===t),{name:"exports"}});
