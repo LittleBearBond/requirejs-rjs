@@ -1,1 +1,0 @@
-define(["require","exports","module"],function(e,t,n){return{add:function(){return Array.prototype.slice.call(arguments).reduce(function(e,t){return t+e},0)},name:"c"}});

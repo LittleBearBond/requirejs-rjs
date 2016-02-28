@@ -20,10 +20,12 @@ gulp.task('build', function(cb) {
     rjs.optimize({
         "baseUrl": projectPath, // 基础路径
         "dir": dist, // 目标路径
-        // "optimize": "uglify", // js优化方式
-        "optimize": "none", // js优化方式
+        "optimize": "uglify", // js优化方式
+        //"optimize": "none", // js优化方式
         "optimizeCss": "standard", // CSS优化方式
-        "modules": [],
+        "modules": [{
+            name: 'modules/page1/init'
+        }],
         "stubModules": ["text", "normalize"], // 不需要引入的插件文件
         "mainConfigFile": projectPath + "/config.js", // 主配置文件
         "preserveLicenseComments": false, // 是否删除源文件的注释，默认为保留
