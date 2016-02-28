@@ -1,7 +1,7 @@
 /* @grunt-build */
-define(['require', 'a', 'c'], function(require, a, c) {
-    // var d = require('./d.js');
-    // console.log(jquery)
+define(function(require, exports, module) {
+    var a = require('./a');
+    var a = require('css!./../css/test');
     return {
         name: 'b',
         log: function() {

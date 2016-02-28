@@ -5,56 +5,30 @@
  * @email           568915669@qq.com
  * @description
  * https://github.com/phated/requirejs-example-gulpfile
+ * http://www.cnblogs.com/lhb25/p/requirejs-ptimizer-using.html
  */
 var gulp = require("gulp");
 var rjs = require('requirejs');
 
+const PROJECT_SRC = "./project/";
+var projectName = 'm-test';
+var version = '/' + '1.x';
+var dist = 'dist/' + projectName + version;
+var projectPath = PROJECT_SRC + projectName + version;
+
 gulp.task('build', function(cb) {
     rjs.optimize({
-        //appDir: './js',
-        dir: './dist/js',
-        baseUrl: 'js',
-        paths: {
-            'jquery': '../lib/jquery-2.1.4',
-            'a': 'a',
-            'b': 'b',
-            'c': 'c'
-        },
-        modules: [
-            //First set up the common build layer.
-            {
-                //module names are relative to baseUrl
-                name: 'common',
-                //List common dependencies here. Only need to list
-                //top level dependencies, "include" will find
-                //nested dependencies.
-                include: [
-                    'jquery'
-                ]
-            },
-            //Now set up a build layer for each page, but exclude
-            //the common one. "exclude" will exclude nested
-            //the nested, built dependencies from "common". Any
-            //"exclude" that includes built modules should be
-            //listed before the build layer that wants to exclude it.
-            //"include" the appropriate "app/main*" module since by default
-            //it will not get added to the build since it is loaded by a nested
-            //require in the page*.js files.
-            {
-                //module names are relative to baseUrl/paths config
-                name: 'page1/page',
-                include: ['a', 'c']/*,
-                exclude: ['common']*/
-            },
-
-            {
-                //module names are relative to baseUrl
-                name: 'page2/page',
-                include: ['b']/*,
-                exclude: ['common']*/
-            }
-
-        ]
+        "baseUrl": projectPath, // 基础路径
+        "dir": dist, // 目标路径
+        // "optimize": "uglify", // js优化方式
+        "optimize": "none", // js优化方式
+        "optimizeCss": "standard", // CSS优化方式
+        "modules": [],
+        "stubModules": ["text", "normalize"], // 不需要引入的插件文件
+        "mainConfigFile": projectPath + "/config.js", // 主配置文件
+        "preserveLicenseComments": false, // 是否删除源文件的注释，默认为保留
+        "removeCombined": true, // 删除之前压缩合并的文件，默认不删除
+        "fileExclusionRegExp": /.*readme/i // 忽略所有readme以及h5文件夹下所有资源
     }, function(buildResponse) {
         // console.log('build response', buildResponse);
         cb();

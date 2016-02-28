@@ -1,5 +1,5 @@
 /* @grunt-build */
-define(function() {
+define(function(require, exports, module) {
     return {
         name: 'a',
         log: function() {
