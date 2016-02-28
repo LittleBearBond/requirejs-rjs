@@ -5,31 +5,30 @@
  * @description
  */
 "use strict";
-var path = require('path');
-var fs = require('fs');
-var files = [];
-var readDir = (dir, filter, done) => {
-    var readFiles = [];
-    var list = fs.readdirSync(dir);
-    var index = 0;
+let path = require('path');
+let fs = require('fs');
+let readDir = (dir, filter, done) => {
+    let readFiles = [];
+    let list = fs.readdirSync(dir);
+    let index = 0;
 
     list = list.map(function(val) {
         return path.join(dir, val);
     });
 
     (function next() {
-        var fullPath = list[index++];
+        let fullPath = list[index++];
         if (!fullPath) {
             return readFiles;
         }
 
-        var stat = fs.statSync(fullPath);
+        let stat = fs.statSync(fullPath);
         if (stat && stat.isDirectory()) {
             readFiles = readFiles.concat(readDir(fullPath, filter));
             next();
             return;
         }
-        var fileInfo = {
+        let fileInfo = {
             fullPath: fullPath,
             fileName: path.basename(fullPath),
             size: stat.size
