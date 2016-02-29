@@ -13,7 +13,7 @@ module.exports = projectName => {
     let reg = new RegExp('project\/' + projectName + '\/\\d\.x\/');
     return getfiles("./project/" + projectName).map(function(val) {
         return {
-            name: val.fullPath.replace(reg, '').replace(REG_JS, '')
+            name: val.fullPath.replace(REG_JS, '').replace(reg, '')
         };
     });
 };

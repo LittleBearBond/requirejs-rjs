@@ -4,7 +4,7 @@ define(function(require, exports, module) {
     //require('/common/tab-switch/tab-switch.js');
 
     //相对于baseurl
-    require('common/fix/fix');
+    require('./../../common/fix/fix');
     require('common/common');
 
     //相对当前目录
