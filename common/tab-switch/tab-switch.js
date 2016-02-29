@@ -5,6 +5,7 @@
  */
 
 define(function(require, exports, module) {
+	console.log('tabSwitch')
 	var emptyFunc = function() {},
 		defaults = {
 			tabs: '.jp-tabs', //tab标签的ul

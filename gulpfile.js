@@ -20,7 +20,9 @@ let distPath = 'dist/' + projectName + versionPath;
 let projectPath = PROJECT_SRC + projectName + versionPath;
 
 let modulesName = getModulesName(projectName);
+console.log(modulesName)
 gulp.task('build', function(cb) {
+    let startTime = +new Date;
     rjs.optimize({
         "baseUrl": projectPath, // 基础路径
         "dir": distPath, // 目标路径
@@ -31,9 +33,13 @@ gulp.task('build', function(cb) {
         "mainConfigFile": "./framework/requirejs-config.js", // 主配置文件
         "preserveLicenseComments": false, // 是否删除源文件的注释，默认为保留
         "removeCombined": true, // 删除之前压缩合并的文件，默认不删除
-        "fileExclusionRegExp": /.*readme/i // 忽略所有readme以及h5文件夹下所有资源
+        "fileExclusionRegExp": /.*readme/i, // 忽略所有readme以及h5文件夹下所有资源
+        // onBuildRead: function(moduleName, path, contents) {
+        //     return contents;
+        // }
     }, function(buildResponse) {
-        // console.log('build response', buildResponse);
+        console.log('------------------build responseEnd--------------------');
+        console.log('耗时：' + (+new Date - startTime));
         cb();
     }, cb);
 });

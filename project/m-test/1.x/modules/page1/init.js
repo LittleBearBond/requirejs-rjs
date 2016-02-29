@@ -1,11 +1,11 @@
 define(function(require, exports, module) {
     //绝对路径
     //绝对路径要加上.js
-    //require('/common/tab-switch/tab-switch.js');
+    // require('common/tab-switch/tab-switch');
 
     //相对于baseurl
     require('./../../common/fix/fix');
-    require('common/common');
+    require('./../../common/common');
 
     //相对当前目录
     var b = require('./js/b');

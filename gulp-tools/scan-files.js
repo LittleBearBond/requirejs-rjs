@@ -7,6 +7,8 @@
 "use strict";
 let path = require('path');
 let fs = require('fs');
+//不扫描以点开头的文件夹
+let regFilterDir = /^\./;
 let readDir = (dir, filter, done) => {
     let readFiles = [];
     let list = fs.readdirSync(dir);
@@ -23,7 +25,7 @@ let readDir = (dir, filter, done) => {
         }
 
         let stat = fs.statSync(fullPath);
-        if (stat && stat.isDirectory()) {
+        if (stat && stat.isDirectory() && !regFilterDir.test(fullPath)) {
             readFiles = readFiles.concat(readDir(fullPath, filter));
             next();
             return;

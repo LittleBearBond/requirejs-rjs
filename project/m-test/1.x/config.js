@@ -8,4 +8,4 @@ require.config({
 
 require(['modules/page1/init'], function(init) {
     init();
-})
+});
