@@ -1,0 +1,1 @@
+define("project/m-test/1.x/modules/page1/js/a",["require","exports","module"],function(e,t,n){return{name:"a",log:function(){console.log("a")}}});
