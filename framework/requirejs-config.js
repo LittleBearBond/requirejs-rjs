@@ -5,13 +5,13 @@
  * @description
  */
 require.config({
-    // baseUrl: "/",
+    baseUrl: "./",
     waitSeconds: 15,
     paths: {
-        "text": "./../../../lib/requirejs/require-text-2.0.14",
-        "css-builder": "./../../../lib/requirejs/css-builder",
-        "normalize": "./../../../lib/requirejs/normalize",
-        "css": "./../../../lib/requirejs/require-css-0.18"
+        "text": "./lib/requirejs/require-text-2.0.14",
+        "css-builder": "./lib/requirejs/css-builder",
+        "normalize": "./lib/requirejs/normalize",
+        "css": "./lib/requirejs/require-css-0.18"
     },
     shim: {
 

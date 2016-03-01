@@ -16,7 +16,7 @@ function md5ify(data, len) {
     return crypto.createHash("md5").update(data).digest("hex").slice(0, len || 8);
 }
 
-module.exports = projectName => {
+module.exports = (projectName, isCheck) => {
     let regProjectName = new RegExp('project\/' + projectName + "\/");
     let projectPath = "./project/" + projectName;
     let versionsMap = cacheVersion.getVersionMap(projectPath)
@@ -25,6 +25,9 @@ module.exports = projectName => {
         try {
             if (path.extname(fullPath) !== '.js') {
                 return false;
+            }
+            if (isCheck === false) {
+                return true;
             }
             let md5Str = md5ify(fs.readFileSync(fullPath));
             //检查是否发生变化
@@ -43,7 +46,8 @@ module.exports = projectName => {
     cacheVersion.setVersionMap(projectPath, versionsMap);
     return files.map(val => {
         return {
-            name: val.fullPath.replace(REG_JS, '').replace(regProjectName, '')
+            name: val.fullPath.replace(REG_JS, ''), //.replace(/^project\//, '')//.replace(regProjectName, '')
+            exclude: ['common/tab-switch/tab-switch']
         };
     });
 };

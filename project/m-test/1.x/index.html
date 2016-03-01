@@ -17,9 +17,17 @@
 <script type="text/javascript" src="/lib/jquery/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="/lib/requirejs/require-2.1.22.js"></script>
 <script type="text/javascript" src="/framework/requirejs-config.js"></script>
+<!-- <script type="text/javascript" src="./config.js"></script> -->
+<script >
+    require.config({
+        baseUrl: "/dist"
+    });
 
-<script type="text/javascript" src="./config.js"></script>
-<!-- <script type="text/javascript" src="/dist/m-test/1.x/config.js"></script> -->
+    require(['project/m-test/1.x/modules/page1/init'], function(init) {
+        init();
+    });
+</script>
+<!-- <script type="text/javascript" src="/dist/project/m-test/1.x/config.js"></script> -->
 </head>
 <body>
 
