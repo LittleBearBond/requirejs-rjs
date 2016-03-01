@@ -35,8 +35,8 @@ let readDir = (dir, filter, done) => {
             fileName: path.basename(fullPath),
             size: stat.size
         };
-        if (typeof filter === 'function' && filter(fullPath) === true) {
-            readFiles.push(fileInfo);
+        if (typeof filter === 'function') {
+            filter(fullPath) === true && readFiles.push(fileInfo);
         } else {
             path.extname(fullPath) === '.js' && readFiles.push(fileInfo);
         }

@@ -1,1 +1,0 @@
-define("common/fix/fix",["require","exports","module"],function(e,t,n){return console.log("fix"),function(e){console.log(e)}});

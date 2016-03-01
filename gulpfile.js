@@ -19,7 +19,7 @@ let versionPath = '/' + version + '.x';
 let distPath = 'dist/' + projectName + versionPath;
 let projectPath = PROJECT_SRC + projectName + versionPath;
 
-let modulesName = getModulesName(projectName);
+let modulesName = getModulesName(projectName + versionPath);
 console.log(modulesName)
 gulp.task('build', function(cb) {
     let startTime = +new Date;
@@ -41,7 +41,10 @@ gulp.task('build', function(cb) {
         console.log('------------------build responseEnd--------------------');
         console.log('耗时：' + (+new Date - startTime));
         cb();
-    }, cb);
+    }, function(err) {
+        console.log(err)
+        cb();
+    });
 });
 
 gulp.task('default', ['build']);

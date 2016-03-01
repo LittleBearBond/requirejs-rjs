@@ -1,1 +1,0 @@
-define("common/common",["require","exports","module"],function(e,t,n){return console.log("common"),function(){console.log("common")}});
