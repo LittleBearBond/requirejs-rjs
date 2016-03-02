@@ -41,7 +41,7 @@ gulp.task('build', function(cb) {
         "preserveLicenseComments": false, // 是否删除源文件的注释，默认为保留
         // 在 RequireJS 2.0.2 中，输出目录的所有资源会在 build 前被删除
         // 值为 true 时 rebuild 更快，但某些特殊情景下可能会出现无法预料的异常
-        "keepBuildDir": true,
+        // "keepBuildDir": true,
         "removeCombined": true, // 删除之前压缩合并的文件，默认不删除
         // 忽略所有readme以及h5文件夹下所有资源
         //^common|^lib|
