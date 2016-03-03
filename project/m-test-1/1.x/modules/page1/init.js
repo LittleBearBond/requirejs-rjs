@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
     //绝对路径
     //绝对路径要加上.js
-    // var name = ;
-    require(['/common/tab-switch/tab-switch.js']);
+    var name = 'common/tab-switch/tab-switch';
+    require([name]);
 
     //相对于baseurl
     require('./../../common/fix/fix');

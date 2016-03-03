@@ -25,14 +25,14 @@ let modulesName = getModulesName(projectName + versionPath, false);
 console.log(modulesName)
 gulp.task('build', function(cb) {
     if (!modulesName || !modulesName.length) {
-        console.log('没有模块发生变化')
+        console.log('modules is null');
         return;
     }
     let startTime = +new Date;
     rjs.optimize({
         //"appDir": projectPath,
-        "baseUrl": "./", // projectPath, // 基础路径
-        "dir": './dist', // 目标路径
+        "baseUrl": projectPath, // projectPath, // 基础路径
+        "dir": distPath, // 目标路径
         "optimize": "uglify", // js优化方式
         "optimizeCss": "standard", // CSS优化方式
         "modules": modulesName,
@@ -44,8 +44,8 @@ gulp.task('build', function(cb) {
         // "keepBuildDir": true,
         "removeCombined": true, // 删除之前压缩合并的文件，默认不删除
         // 忽略所有readme以及h5文件夹下所有资源
-        //^common|^lib|
-        "fileExclusionRegExp": /^\.|readme|node_modules|gulpfile|^dist|^gulp|^framework|^demos/i,
+        //
+        "fileExclusionRegExp": /^\.|readme|node_modules|gulpfile|^common|^lib|^dist|^gulp|^framework|^demos/i,
         onBuildRead: function(moduleName, path, contents) {
             // console.log(moduleName)
             return contents;

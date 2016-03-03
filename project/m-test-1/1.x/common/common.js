@@ -6,11 +6,10 @@
 //except for 'app' ones, which are in a sibling
 //directory.
 /* @grunt-build */
-define('common/common',['require','exports','module'],function(require, exports, module) {
+define(function(require, exports, module) {
     console.log('common');
 
     return function() {
         console.log('common');
     }
 });
-

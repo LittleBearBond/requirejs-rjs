@@ -20,10 +20,9 @@
 <!-- <script type="text/javascript" src="./config.js"></script> -->
 <script >
     require.config({
-        baseUrl: "/dist"
+        baseUrl: "/dist/project/m-test/1.x/"
     });
-
-    require(['project/m-test/1.x/modules/page1/init'], function(init) {
+    require(['modules/page1/init'], function(init) {
         init();
     });
 </script>

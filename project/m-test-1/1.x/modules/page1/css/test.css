@@ -1,0 +1,8 @@
+#main {
+    font-size: 25px;
+    height: 200px;
+    background: #ccc;
+}
+#main p {
+    color: red;
+}
