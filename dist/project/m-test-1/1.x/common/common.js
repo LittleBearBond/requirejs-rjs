@@ -1,16 +1,1 @@
-//The build will inline common dependencies into this file.
-
-//For any third party dependencies, like jQuery, place them in the lib folder.
-
-//Configure loading modules from the lib directory,
-//except for 'app' ones, which are in a sibling
-//directory.
-/* @grunt-build */
-define('common/common',['require','exports','module'],function(require, exports, module) {
-    console.log('common');
-
-    return function() {
-        console.log('common');
-    }
-});
-
+define("common/common",["require","exports","module"],function(e,t,n){return console.log("common"),function(){console.log("common")}});

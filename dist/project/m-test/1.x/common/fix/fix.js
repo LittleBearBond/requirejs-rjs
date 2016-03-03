@@ -1,8 +1,1 @@
-/* @grunt-build */
-define('common/fix/fix',['require','exports','module'],function(require, exports, module) {
-    console.log('fix')
-    return function(arg) {
-        console.log(arg)
-    }
-});
-
+define("common/fix/fix",["require","exports","module"],function(e,t,n){return console.log("fix"),function(e){console.log(e)}});
