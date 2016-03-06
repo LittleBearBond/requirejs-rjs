@@ -38,7 +38,7 @@ module.exports = function(projectName) {
             "optimize": "uglify", // js优化方式
             "optimizeCss": "standard", // CSS优化方式
             "modules": modulesName,
-            "stubModules": ["text", "normalize"], // 不需要引入的插件文件
+            "stubModules": ["text", "normalize", "css"], // 不需要引入的插件文件
             "mainConfigFile": "./framework/requirejs-config.js", // 主配置文件
             "preserveLicenseComments": false, // 是否删除源文件的注释，默认为保留
             // 在 RequireJS 2.0.2 中，输出目录的所有资源会在 build 前被删除
