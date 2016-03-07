@@ -1,7 +1,11 @@
 /* @grunt-build */
 define(function(require, exports, module) {
     var a = require('./a');
-    var a = require('css!./../css/test');
+    var asyncTest = require(['./async-c'], function() {
+        console.log('asyncTest callback')
+    });
+    console.log(asyncTest)
+    var css = require('css!./../css/test');
     return {
         name: 'b',
         log: function() {

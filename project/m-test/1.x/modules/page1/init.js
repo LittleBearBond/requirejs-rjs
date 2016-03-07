@@ -7,7 +7,7 @@ define(function(require, exports, module) {
     //相对于baseurl
     require('./../../common/fix/fix');
     require('./../../common/common');
-
+    console.log('test-module-name', require('test-module-name'));
     //相对当前目录
     var b = require('./js/b');
     var tpl = require('text!./tpl/dialog-login.html');
