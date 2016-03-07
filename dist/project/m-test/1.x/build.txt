@@ -11,10 +11,14 @@ common/fix/fix.js
 ----------------
 common/fix/fix.js
 
+common/test-module-name.js
+----------------
+
 modules/page1/init.js
 ----------------
 common/fix/fix.js
 common/common.js
+common/test-module-name.js
 modules/page1/js/a.js
 normalize.js
 css.js
@@ -27,6 +31,10 @@ modules/page1/init.js
 modules/page1/js/a.js
 ----------------
 modules/page1/js/a.js
+
+modules/page1/js/async-c.js
+----------------
+modules/page1/js/async-c.js
 
 modules/page1/js/b.js
 ----------------

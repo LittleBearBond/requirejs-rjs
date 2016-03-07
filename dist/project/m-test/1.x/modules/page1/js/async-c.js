@@ -1,0 +1,1 @@
+define("modules/page1/js/async-c",["require","exports","module"],function(e,t,n){return{name:"c",log:function(){console.log("c")}}});

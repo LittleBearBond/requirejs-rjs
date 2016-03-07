@@ -48,7 +48,8 @@ module.exports = (projectName, isCheck) => {
     return files.map(val => {
         return {
             name: val.fullPath.replace(REG_JS, '').replace(regProjectName, ''), //.replace(/^project\//, '')//.replace(regProjectName, '')
-            // exclude: ['common/tab-switch/tab-switch']
+            exclude: ['common/test-module-name'],
+            // excludeShallow: ['test-module-name']
         };
     });
 };

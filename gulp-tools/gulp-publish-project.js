@@ -47,14 +47,14 @@ module.exports = function(projectName) {
             "removeCombined": true, // 删除之前压缩合并的文件，默认不删除
             // 忽略所有readme以及h5文件夹下所有资源
             "fileExclusionRegExp": /^\.|readme|node_modules|gulpfile|^dist|^gulp|^framework|^demos/i,
-            /*onBuildRead: function(moduleName, path, contents) {
+            onBuildRead: function(moduleName, path, contents) {
                 console.log(moduleName)
                 return contents;
             },
             // 在每个文件模块被写入时的操作函数
             onBuildWrite: function(moduleName, path, contents) {
-                return contents.replace(/bar/g, 'foo');
-            },*/
+                return contents;
+            },
         }, function(buildResponse) {
             console.log('------------------build responseEnd--------------------');
             console.log('耗时：' + (+new Date - startTime));

@@ -1,5 +1,6 @@
 /* @grunt-build */
-define('test-module-name', function(require, exports, module) {
+define(function(require, exports, module) {
+    console.log('test-moduleName')
     return {
         log: function() {
             console.log(arguments)
