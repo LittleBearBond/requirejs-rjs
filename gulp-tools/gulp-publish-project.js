@@ -33,8 +33,8 @@ module.exports = function(projectName) {
         let startTime = +new Date;
         rjs.optimize({
             //"appDir": projectPath,
-            "baseUrl": projectPath, // projectPath, // 基础路径
-            "dir": distPath, // 目标路径
+            "baseUrl":'./', // projectPath, // 基础路径
+            "dir": './temp', // 目标路径
             "optimize": "uglify", // js优化方式
             "optimizeCss": "standard", // CSS优化方式
             "modules": modulesName,
@@ -46,7 +46,7 @@ module.exports = function(projectName) {
             // "keepBuildDir": true,
             "removeCombined": true, // 删除之前压缩合并的文件，默认不删除
             // 忽略所有readme以及h5文件夹下所有资源
-            "fileExclusionRegExp": /^\.|readme|node_modules|gulpfile|^dist|^gulp|^framework|^demos/i,
+            "fileExclusionRegExp": /^\.|readme|node_modules|gulpfile|^(dist|gulp|framework|demos|temp|lib)/i,
             onBuildRead: function(moduleName, path, contents) {
                 console.log(moduleName)
                 return contents;

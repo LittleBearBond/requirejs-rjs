@@ -47,8 +47,8 @@ module.exports = (projectName, isCheck) => {
     // cacheVersion.setVersionMap(projectPath, versionsMap);
     return files.map(val => {
         return {
-            name: val.fullPath.replace(REG_JS, '').replace(regProjectName, ''), //.replace(/^project\//, '')//.replace(regProjectName, '')
-            exclude: ['common/test-module-name'],
+            name: val.fullPath.replace(REG_JS, '')//.replace(regProjectName, ''), //.replace(/^project\//, '')//.replace(regProjectName, '')
+            // exclude: ['common/test-module-name'],
             // excludeShallow: ['test-module-name']
         };
     });
