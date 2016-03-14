@@ -46,8 +46,8 @@ module.exports = function(projectName) {
             // "keepBuildDir": true,
             "removeCombined": true, // 删除之前压缩合并的文件，默认不删除
             // 忽略所有readme以及h5文件夹下所有资源
-            "fileExclusionRegExp": /^\.|readme|node_modules|gulpfile|^(dist|gulp|framework|demos|temp|lib)/i,
-            onBuildRead: function(moduleName, path, contents) {
+            "fileExclusionRegExp": /^\.|readme|node_modules|gulpfile|^(dist|gulp|framework|demos|temp)|project\/m\-test\-1/i,
+            onBuildRead: function(moduleName, path, contents)
                 console.log(moduleName)
                 return contents;
             },
